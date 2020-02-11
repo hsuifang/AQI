@@ -1,0 +1,42 @@
+
+$gray: #F0F0F0;
+$dark: #222;
+$white: #fff;
+$alert: #FF5757;
+
+$good: #95F084;
+$moderate: #FFE695;
+$unhealthSensitive: #FFAF6A;
+$unhealth:#FF5757;
+$varyUnhealthy:#9777FF;
+$hazardous:#AD1774;
+
+$aqi: (
+  'good': $good,
+  'moderate': $moderate,
+  'unhealthSensitive': $unhealthSensitive,
+  'unhealth': $unhealth,
+  'varyUnhealthy': $varyUnhealthy,
+  'hazardous': $hazardous
+);
+
+$themes: (
+  'gray': $gray,
+  'dark': $dark,
+  'white': $white
+);
+
+// Spacing | 間距
+// 
+$space: 1rem !default;
+$spacer-1: 0.5rem;
+$spacer-2: 1rem;
+
+$spacer: (
+  0: 0,
+  1: $space * 0.5,
+  2: $space,
+  3: $space * 1.5,
+  4: $space * 2,
+  5: $space * 3
+);

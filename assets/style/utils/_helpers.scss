@@ -1,0 +1,87 @@
+.flex {
+  display: flex;
+}
+.alignItems--c {
+  align-items: center;
+}
+.justify--spaceBw {
+  justify-content: space-between;
+}
+.dotted-top {
+  border-top: 2px dotted $dark;
+}
+.dotted {
+  border: 2px dotted $dark;
+}
+.pointer {
+  cursor: pointer;
+}
+// AQI Color
+@each $key, $value in $aqi {
+  .bg-aqi-#{$key} {
+    background-color: $value !important;
+  }
+  .aqi-#{key} {
+    color: $value !important;
+  }
+}
+
+// Normal Color
+@each $key, $value in $themes {
+  .#{$key} {
+    color: $value !important;
+  }
+  .bg-#{$key} {
+    background-color: $value !important;
+  }
+}
+
+// Margin
+//
+// 依據 space 列舉top、right、bottom、left
+@each $key, $value in $spacer {
+  .m-#{$key} {
+    margin: $value;
+  }
+  .mt-#{$key} {
+    margin-top: $value;
+  }
+  .mr-#{$key} {
+    margin-right: $value;
+  }
+  .mb-#{$key} {
+    margin-bottom: $value;
+  }
+  .ml-#{$key} {
+    margin-left: $value;
+  }
+}
+
+// Padding
+//
+// 依據 space 列舉top、right、bottom、left
+@each $key, $value in $spacer {
+  .p-#{$key} {
+    padding: $value;
+  }
+  .pt-#{$key} {
+    padding-top: $value;
+  }
+  .pr-#{$key} {
+    padding-right: $value;
+  }
+  .pb-#{$key} {
+    padding-bottom: $value;
+  }
+  .pl-#{$key} {
+    padding-left: $value;
+  }
+}
+
+
+// Width
+@for $i from 1 through 20 {
+  .w#{$i*5} {
+    width: $i*5%
+  }
+}

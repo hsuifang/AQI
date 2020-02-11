@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="assets/style/style.css">
+  <title>AQI</title>
+</head>
+<body>
+  <div id="app">
+    <div class="spinner" :class="{pause: isload}"><p>😊 請稍候... 😊</p></div>
+    <div v-if="isload" class="p-5">
+      <div class="flex">
+        <div class="w30 mr-2 p-aqiTitle">
+          <h1>空氣品質指標(AQI)</h1>
+          <select v-model="focusCounty">
+            <option value="" selected disabled>請選擇區域</option>
+            <option v-for="(county, index) in counties" :key="index" :value="county">{{county}}</option>
+          </select>
+        </div>
+        <div class="w70 p-aqiTable">
+          <p class="bg-aqi-good">0~50</p>
+          <p class="bg-aqi-moderate">51~100</p>
+          <p class="bg-aqi-unhealthSensitive">101~150</p>
+          <p class="bg-aqi-unhealth">151~200</p>
+          <p class="bg-aqi-varyUnhealthy">201~300</p>
+          <p class="bg-aqi-hazardous">301~400</p>
+          <p>良好</p>
+          <p>普通</p>
+          <p>對敏感族群不健康</p>
+          <p>對所有族群不健康</p>
+          <p>非常不健康</p>
+          <p>危害</p>
+        </div>
+      </div>
+      <div class="flex alignItems--c justify--spaceBw pt-3 pb-3">
+        <h2>{{focusCounty}}</h2>
+        <div class="w80 dotted-top"></div>
+        <p>{{siteName[0].PublishTime}}</p>
+      </div>
+      <div class="p-cityAreas">
+        <div class="p-cityAreas__detail">
+          <div class="p-cityAreas__item">
+            <p class="w55">{{siteName[focusSiteIndex].SiteName}}</p>
+            <p class="w45" :class="siteName[focusSiteIndex]['Status'] | aqiColor">{{siteName[focusSiteIndex]['AQI']}}</p>
+          </div>
+          <ul>
+            <li>
+              <p>臭氧O3 (ppb)</p>
+              <p>{{siteName[focusSiteIndex]['O3']}}</p>
+            </li>
+            <li>
+              <p>懸浮微粒 PM10(μg／m3)</p>
+              <p>{{siteName[focusSiteIndex]['PM10']}}</p>
+            </li>
+            <li>
+              <p>細懸浮微粒 PM2.5(μg／m3)</p>
+              <p>{{siteName[focusSiteIndex]['PM2.5']}}</p>
+            </li>
+            <li>
+              <p>一氧化碳 CO(ppm)</p>
+              <p>{{siteName[focusSiteIndex]['CO']}}</p>
+            </li>
+            <li>
+              <p>二氧化硫 SO2(ppb)</p>
+              <p>{{siteName[focusSiteIndex]['SO2']}}</p>
+            </li>
+            <li>
+              <p>二氧化氮 NO2(ppb)</p>
+              <p>{{siteName[focusSiteIndex]['NO2']}}</p>
+            </li>
+          </ul>
+          <p class="mt-1">👉 點擊右方方塊，查詢詳細資訊</p>
+        </div>
+        <div class="p-cityAreas__wrapItems">
+          <div v-for="(item, index) in siteName" :key="index"
+            @click="setSiteIndex(index)"
+            class="p-cityAreas__item pointer" :class="{dotted: index === focusSiteIndex}">
+            <p class="w55">{{item.SiteName}}</p>
+            <p class="w45" :class="item.Status | aqiColor">{{item.AQI}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

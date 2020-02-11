@@ -1,0 +1,67 @@
+// table
+.p-aqiTable {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border: 1px solid $dark;
+  align-items: stretch;
+  overflow: scroll;
+  p {
+    border: 1px solid $dark;
+    padding: 0.8rem 1rem;
+    text-align: center;
+    background-color: $white;
+  }
+}
+.p-aqiTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+// 顯示城市區塊
+.p-cityAreas {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+  &__detail {
+    grid-column: 1 / 2;
+    grid-row: 1 / max-content;
+    ul {
+      border: 2px solid $dark;
+      border-top: none;
+      padding: 0.5rem 1rem;
+      background-color: $white;
+      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+    }
+    li {
+       display: flex;
+       justify-content: space-between;
+       border-bottom: 1px solid $dark;
+       padding: 1rem;
+       &:last-of-type {
+         border-bottom: none;
+       }
+    }
+  }
+  &__wrapItems {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 16px;
+  }
+  &__item {
+    display: flex;
+    align-content: stretch;
+    align-self: flex-start;
+    p {
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: 2px solid $dark;
+      padding: 1rem;
+      text-align: center;
+      background: $white;
+      &:first-of-type {
+        border-right: none;
+      }
+    }
+  }
+}
