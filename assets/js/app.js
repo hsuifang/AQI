@@ -4,7 +4,7 @@ let app = new Vue({
     isload: false,
     url: {
       cors: 'https://script.google.com/macros/s/AKfycbzqprqdS--MWuhroSbOOmrxsvR-Z21S479LSKlGWW0K29W2GME/exec?url=',
-      cors_aqi: 'http://opendata.epa.gov.tw/webapi/Data/REWIQA/?format=json',
+      cors_aqi: 'https://opendata.epa.gov.tw/ws/Data/AQI/?$format=json',
       aqi: 'https://opendata.epa.gov.tw/api/v1/AQI?%24skip=0&%24top=1000&%24format=json'
     },
     counties: [],
